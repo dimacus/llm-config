@@ -88,6 +88,19 @@ function App() {
           />
         )}
       </main>
+
+      <section className="donation">
+        <h2>Support This Project</h2>
+        <p>Help us host and improve this page</p>
+        <a 
+          href="https://www.paypal.com/paypalme/nsweb" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="donation-button"
+        >
+          Donate via PayPal
+        </a>
+      </section>
     </div>
   )
 }
