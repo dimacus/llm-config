@@ -21,7 +21,53 @@
 .subtitle {
   font-size: 1.2rem;
   color: #718096;
-  margin: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.header-button {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.contribute-link {
+  background-color: #238636;
+  color: white;
+  border-color: #238636;
+}
+
+.contribute-link:hover {
+  background-color: #2ea043;
+  border-color: #2ea043;
+  color: white;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.donate-link {
+  background-color: #0070ba;
+  color: white;
+  border-color: #0070ba;
+}
+
+.donate-link:hover {
+  background-color: #005ea6;
+  border-color: #005ea6;
+  color: white;
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .instructions {
@@ -145,9 +191,50 @@
   margin: 2rem;
 }
 
-.donation {
+.contribute {
   text-align: center;
   margin-top: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #24292e 0%, #2f363d 100%);
+  border-radius: 8px;
+  color: white;
+}
+
+.contribute h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.contribute p {
+  margin: 0 0 1.5rem 0;
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.contribute-button {
+  display: inline-block;
+  background-color: #238636;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.contribute-button:hover {
+  background-color: #2ea043;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.donation {
+  text-align: center;
+  margin-top: 2rem;
   padding: 2rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 8px;
@@ -202,5 +289,15 @@
   .instructions,
   .markdown-content {
     padding: 1.5rem;
+  }
+  
+  .header-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header-button {
+    width: 200px;
+    text-align: center;
   }
 }

@@ -34,13 +34,20 @@ function App() {
   return (
     <>
       <div className="container">
-        <header className="header">
-          <h1>LLM Configuration Examples</h1>
-          <p className="subtitle">
-            Example configurations for Large Language Models and AI tools
-          </p>
-        </header>
-
+      <header className="header">
+        <h1>LLM Configuration Examples</h1>
+        <p className="subtitle">
+          Example configurations for Large Language Models and AI tools
+        </p>
+        <div className="header-buttons">
+          <a href="#contribute" className="header-button contribute-link">
+            Contribute
+          </a>
+          <a href="#donate" className="header-button donate-link">
+            Donate
+          </a>
+        </div>
+      </header>
         <section className="instructions">
           <h2>How to Use These Configurations</h2>
           <p>
@@ -100,7 +107,20 @@ function App() {
           )}
         </main>
 
-        <section className="donation">
+        <section id="contribute" className="contribute">
+          <h2>Contribute</h2>
+          <p>Help improve this project by contributing configurations, fixes, or new features</p>
+          <a 
+            href="https://github.com/dimacus/llm-config" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="contribute-button"
+          >
+            View on GitHub
+          </a>
+        </section>
+
+        <section id="donate" className="donation">
           <h2>Support This Project</h2>
           <p>Help us host and improve this page</p>
           <a 
