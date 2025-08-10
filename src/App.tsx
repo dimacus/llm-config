@@ -73,11 +73,20 @@ function App() {
               <p>--message flag or .aider.conf.yml</p>
             </div>
             
-            <div className="config-item">
-              <h3>GitHub Copilot</h3>
-              <p>VS Code Settings → GitHub Copilot → Instructions</p>
-            </div>
+          <div className="config-item">
+            <h3>GitHub Copilot</h3>
+            <p>VS Code Settings → GitHub Copilot → Instructions</p>
           </div>
+          
+          <div className="config-item">
+            <h3>Claude Code</h3>
+            <p>Claude.md file in project root</p>
+          </div>
+          
+          <div className="config-item">
+            <h3>OpenCode</h3>
+            <p>AGENTS.md file in project root</p>
+          </div>          </div>
         </section>
 
         <main className="content">
