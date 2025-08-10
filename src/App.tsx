@@ -1,0 +1,95 @@
+import { useState, useEffect } from 'react'
+import { marked } from 'marked'
+import './App.css'
+
+function App() {
+  const [markdownContent, setMarkdownContent] = useState<string>('')
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string>('')
+
+  useEffect(() => {
+    const fetchMarkdown = async () => {
+      try {
+        const response = await fetch('/generic.md')
+        if (!response.ok) {
+          throw new Error('Failed to fetch markdown file')
+        }
+        const text = await response.text()
+        setMarkdownContent(text)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error occurred')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchMarkdown()
+  }, [])
+
+  const renderMarkdown = (markdown: string) => {
+    return { __html: marked(markdown) }
+  }
+
+  return (
+    <div className="container">
+      <header className="header">
+        <h1>LLM Configuration Examples</h1>
+        <p className="subtitle">
+          Example configurations for Large Language Models and AI tools
+        </p>
+      </header>
+
+      <section className="instructions">
+        <h2>How to Use These Configurations</h2>
+        <p>
+          Copy the configuration content below and place it in the appropriate location for your LLM or AI tool:
+        </p>
+        
+        <div className="config-locations">
+          <div className="config-item">
+            <h3>OpenAI ChatGPT</h3>
+            <p>Custom Instructions → System Instructions</p>
+          </div>
+          
+          <div className="config-item">
+            <h3>Claude (Anthropic)</h3>
+            <p>Project Settings → Project Instructions</p>
+          </div>
+          
+          <div className="config-item">
+            <h3>Cursor IDE</h3>
+            <p>Settings → Rules for AI → .cursorrules file</p>
+          </div>
+          
+          <div className="config-item">
+            <h3>Continue.dev</h3>
+            <p>~/.continue/config.json → systemMessage</p>
+          </div>
+          
+          <div className="config-item">
+            <h3>Aider</h3>
+            <p>--message flag or .aider.conf.yml</p>
+          </div>
+          
+          <div className="config-item">
+            <h3>GitHub Copilot</h3>
+            <p>VS Code Settings → GitHub Copilot → Instructions</p>
+          </div>
+        </div>
+      </section>
+
+      <main className="content">
+        {loading && <div className="loading">Loading configuration...</div>}
+        {error && <div className="error">Error: {error}</div>}
+        {!loading && !error && (
+          <div 
+            className="markdown-content"
+            dangerouslySetInnerHTML={renderMarkdown(markdownContent)}
+          />
+        )}
+      </main>
+    </div>
+  )
+}
+
+export default App
