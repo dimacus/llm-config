@@ -234,6 +234,48 @@ body {
   color: #90cdf4;
 }
 
+.copy-button-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 1rem 0 1rem;
+  background-color: #1a202c;
+  border-radius: 8px 8px 0 0;
+}
+
+.copy-button-container.bottom {
+  padding: 0 1rem 1rem 1rem;
+  border-radius: 0 0 8px 8px;
+}
+
+.copy-button {
+  background-color: #4a5568;
+  color: #e2e8f0;
+  border: 1px solid #718096;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.copy-button:hover {
+  background-color: #2d3748;
+  border-color: #4a5568;
+  transform: translateY(-1px);
+}
+
+.copy-button:active {
+  transform: translateY(0);
+}
+
+.copy-icon {
+  font-size: 0.8rem;
+}
+
 .loading,
 .error {
   text-align: center;
@@ -413,6 +455,19 @@ body {
     padding: 1.25rem;
   }
   
+  .copy-button-container {
+    padding: 0.75rem 0.75rem 0 0.75rem;
+  }
+  
+  .copy-button-container.bottom {
+    padding: 0 0.75rem 0.75rem 0.75rem;
+  }
+  
+  .copy-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
   .markdown-content h1 {
     font-size: 1.5rem;
     margin-top: 1.5rem;
@@ -509,6 +564,19 @@ body {
   .contribute,
   .donation {
     padding: 1rem;
+  }
+  
+  .copy-button-container {
+    padding: 0.5rem 0.5rem 0 0.5rem;
+  }
+  
+  .copy-button-container.bottom {
+    padding: 0 0.5rem 0.5rem 0.5rem;
+  }
+  
+  .copy-button {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
   }
   
   .config-item {

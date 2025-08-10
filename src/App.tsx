@@ -7,6 +7,7 @@ function App() {
   const [markdownContent, setMarkdownContent] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string>('')
+  const [copySuccess, setCopySuccess] = useState<boolean>(false)
 
   useEffect(() => {
     const fetchMarkdown = async () => {
@@ -29,6 +30,16 @@ function App() {
 
   const renderMarkdown = (markdown: string) => {
     return { __html: marked(markdown) }
+  }
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(markdownContent)
+      setCopySuccess(true)
+      setTimeout(() => setCopySuccess(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy text: ', err)
+    }
   }
 
   return (
@@ -101,10 +112,36 @@ function App() {
           {error && <div className="error">Error: {error}</div>}
         {!loading && !error && (
           <div className="markdown-content">
+            <div className="copy-button-container">
+              <button 
+                onClick={copyToClipboard}
+                className="copy-button"
+                title="Copy to clipboard"
+              >
+                {copySuccess ? (
+                  <span className="copy-icon">✓ Copied!</span>
+                ) : (
+                  <span className="copy-icon">📋 Copy</span>
+                )}
+              </button>
+            </div>
             <div 
               className="markdown-content-inner"
               dangerouslySetInnerHTML={renderMarkdown(markdownContent)}
             />
+            <div className="copy-button-container bottom">
+              <button 
+                onClick={copyToClipboard}
+                className="copy-button"
+                title="Copy to clipboard"
+              >
+                {copySuccess ? (
+                  <span className="copy-icon">✓ Copied!</span>
+                ) : (
+                  <span className="copy-icon">📋 Copy</span>
+                )}
+              </button>
+            </div>
           </div>
         )}        </main>
 
