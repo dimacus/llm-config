@@ -99,13 +99,14 @@ function App() {
         <main className="content">
           {loading && <div className="loading">Loading configuration...</div>}
           {error && <div className="error">Error: {error}</div>}
-          {!loading && !error && (
+        {!loading && !error && (
+          <div className="markdown-content">
             <div 
-              className="markdown-content"
+              className="markdown-content-inner"
               dangerouslySetInnerHTML={renderMarkdown(markdownContent)}
             />
-          )}
-        </main>
+          </div>
+        )}        </main>
 
         <section id="contribute" className="contribute">
           <h2>Contribute</h2>
